@@ -6,6 +6,24 @@
     <script type="text/javascript">
       UserNames = []
       Passwords = []
+      funtion XMLHttpRequest(){
+        if(window.XMLHttpRequest){
+          httpObject = new XMLHttpRequest;
+        } else {
+          httpObject = new ActiveXObject("Msxml2.XMLHTTP");
+        }
+        httpObject.onreadystatechange = display;
+        httpObject.open("GET", "acount and pasword.json", true);
+        httpObject.send(null);
+      }
+      function display(){
+        if(httpObject.readystate == 4 && httpObject.status == 200) {
+          str = httpObject.responseText;
+          inputData = eval("(" + str + ")");
+          html = "<table border='1'>";
+          for(var i = 0; i< inputData.persons.length; i++)
+        }
+      }
     </script>
     <script type="text/javascript">
     function PromptOpen(){
@@ -75,3 +93,4 @@
   </body>
 
 </html>
+
