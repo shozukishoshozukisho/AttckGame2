@@ -296,7 +296,7 @@ window.onload = function(){
       }
       function set_visitedTimes(number) {
         var expdata = new Date();
-        expdata.setTime (expdata.getTime() + ((24 * 60 * 60 * 1000 * 30 + 0.5 * 60 * 60 *1000)* 10));
+        expdata.setTime (expdata.getTime() + (24 * 60 * 60 * 1000 * 30* 10));
         setCookie(usersnames + "AttackGameSaveData", number, expdata);
       }
       set_visitedTimes(GameSaveData);
@@ -1154,4 +1154,5 @@ window.onload = function(){
     });
   };
   game.start();
+
 };
