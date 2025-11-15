@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>attack game1</title>
+    <script type="text/javascript">
+      UserNames = []
+      Passwords = []
+    </script>
+    <script type="text/javascript">
+    function PromptOpen(){
+      PO1 = prompt("ユーザー名を入力してください", "user name");
+        if (!(PO1=="" || PO1=="user name" || PO1==null)){
+          userName = PO1;
+          UserNamesPlusOne = UserNames.length + 1;
+          for(var i = 0; i < UserNamesPlusOne; i++){
+            if(userName==UserNames[i]){
+              alert("そのユーザー名は既に使われています");
+              i = UserNamesPlusOne + 1;
+            } else {
+              PO2 = prompt("パスワードを入力してください", "password");
+                if (!(PO2=="" || PO2=="password name" || PO2==null)) {
+                  password = PO2;
+                  Passwords[Passwords.length] = password;
+                  UserNames[UserNames.length] = userName;
+                  i = UserNamesPlusOne + 1;
+                } else {
+                  alert("何も入力されていないか、［キャンセル］が押されました");
+                  i = UserNamesPlusOne + 1;
+                }
+            }
+          }
+        } else {
+          alert("何も入力されていないか、［キャンセル］が押されました");
+        }
+    }
+    function PromptOpens(){
+      PO1 = prompt("ユーザー名を入力してください", "user name");
+        if (!(PO1=="" || PO1=="user name" || PO1==null)){
+          UserNamesPlusOne = UserNames.length + 1;
+          for(var j = 0; j < UserNamesPlusOne; j++){
+            if(PO1==UserNames[j]){
+              UsersNamesNumburs = j;
+              PO2 = prompt("パスワードを入力してください", "password");
+                if (!(PO2=="" || PO2=="password name" || PO2==null)) {
+                  if(PO2==Passwords[UsersNamesNumburs]){
+                    alert("ログインしました")
+                    usersnames = PO1;
+                    j = UserNamesPlusOne + 1;
+                  } else {
+                    alert("パスワードが違います");
+                    j = UserNamesPlusOne + 1
+                  }
+                } else {
+                  alert("パスワードを入力してください");
+                  j = UserNamesPlusOne + 1;
+                }
+            } else {
+              alert("ユーザー名が存在しません");
+              j = UserNamesPlusOne + 1;
+            }
+          }
+        }
+    }
+    </script>
+    <script type="text/javascript" src="enchant.js"></script>
+    <script type="text/javascript" src="game.js"></script>
+    <script type="text/javascript" src="map.js"></script>
+   	<link rel="stylesheet" type="text/css" href="game.css"> 
+  </head>
+  <body>
+    <script type="text/javascript" src="enchant.js"></script>
+    <script type="text/javascript" src="game.js"></script>
+    <script type="text/javascript" src="map.js"></script>
+  </body>
+</html>
