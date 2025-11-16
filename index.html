@@ -4,25 +4,22 @@
     <meta charset="utf-8">
     <title>attack game2</title>
     <script type="text/javascript">
-      UserNames = []
-      Passwords = []
-      funtion XMLHttpRequest(){
-        if(window.XMLHttpRequest){
-          httpObject = new XMLHttpRequest;
-        } else {
-          httpObject = new ActiveXObject("Msxml2.XMLHTTP");
-        }
-        httpObject.onreadystatechange = display;
-        httpObject.open("GET", "acount and pasword.json", true);
-        httpObject.send(null);
+      UserNames = [];
+      Passwords = [];
+      sample = null;
+      if(UserNames.load("acount and pasword.json") == ""){
+        UserNames = [];
+      } else {
+        sample.load("acount and pasword.json");
+        UserNames = JSON.parse(sample);
+        sample = null;
       }
-      function display(){
-        if(httpObject.readystate == 4 && httpObject.status == 200) {
-          str = httpObject.responseText;
-          inputData = eval("(" + str + ")");
-          html = "<table border='1'>";
-          for(var i = 0; i< inputData.persons.length; i++)
-        }
+      if(Passwords.load("acount and paswords.json") == ""){
+        Passwords = [];
+      } else {
+        sample.load("acount and paswords.json");
+        Passwords = JSON.parse(sample);
+        sample = null;
       }
     </script>
     <script type="text/javascript">
@@ -41,6 +38,10 @@
                   password = PO2;
                   Passwords[Passwords.length] = password;
                   UserNames[UserNames.length] = userName;
+                  load("acount and pasword.json",
+                      JSON.stringify(UserNames));
+                  load("acount and paswords.json",
+                      JSON.stringify(Passwords));
                   i = UserNamesPlusOne + 1;
                 } else {
                   alert("何も入力されていないか、［キャンセル］が押されました");
@@ -62,7 +63,7 @@
               PO2 = prompt("パスワードを入力してください", "password");
                 if (!(PO2=="" || PO2=="password name" || PO2==null)) {
                   if(PO2==Passwords[UsersNamesNumburs]){
-                    alert("ログインしました")
+                    alert("ログインしました");
                     usersnames = PO1;
                     j = UserNamesPlusOne + 1;
                   } else {
@@ -93,4 +94,5 @@
   </body>
 
 </html>
+
 
