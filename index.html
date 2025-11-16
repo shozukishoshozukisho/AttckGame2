@@ -31,7 +31,7 @@
           for(var i = 0; i < UserNames.length; i++){
             if(userName==UserNames[i]){
               alert("そのユーザー名は既に使われています");
-              i = UserNamesPlusOne + 1;
+              i = UserNames.length;
             } else {
               PO2 = prompt("パスワードを入力してください", "password");
                 if (!(PO2=="" || PO2=="password name" || PO2==null)) {
