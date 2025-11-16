@@ -8,17 +8,17 @@
       UserNames = [];
       Passwords = [];
       sample = null;
-      if(UserNames.load("acount and pasword.json") == ""){
+      if($(UserNames).load("acount and pasword.json") == ""){
         UserNames = [];
       } else {
-        sample.load("acount and pasword.json");
+        $(sample).load("acount and pasword.json");
         UserNames = JSON.parse(sample);
         sample = null;
       }
-      if(Passwords.load("acount and paswords.json") == ""){
+      if($(Passwords).load("acount and paswords.json") == ""){
         Passwords = [];
       } else {
-        sample.load("acount and paswords.json");
+        $(sample).load("acount and paswords.json");
         Passwords = JSON.parse(sample);
         sample = null;
       }
@@ -96,6 +96,7 @@
   </body>
 
 </html>
+
 
 
 
